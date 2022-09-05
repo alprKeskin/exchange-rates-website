@@ -1,8 +1,16 @@
 <div class="container">
-    <!--Bu form submit edildiği anda onSubmit method'u çağırılacaktır.-->
+    <div id="exchange-rates-header" style="margin-bottom: 80px;">
+        <h2 class="center_horizontal" style="display: inline;">Exchange Rates</h2>
+        <div style="position: relative; float: right;">
+            <a href="wallet-page" title="Wallet Details" target="_self">
+                <img src="https://www.freeiconspng.com/uploads/wallet-icon-5.png" height="50px" width="50px">
+            </a>
+            <p style="text-align: center;">{{budget}}$</p>
+        </div>
+    </div>
+
     <form class="add-form" (ngSubmit)="onSubmit()">
         <div class="form-control">
-            <label for="currency_code_input_id" style="margin-left: 5px;">Exchange Rates</label>
             <!-- [(ngModel)]="currencyCode" yazabilmen için FormsModule'i app.module.ts dosyasında import etmen gerekiyor. -->
             <!-- [(ngModel)]="currencyCode" attribute'si sayesinde girilen currency code'u currency_code isimli member variable'ye atayabiliyorum. -->
             <input type="text" name="currency_code_input_name" id="currency_code_input_id" [(ngModel)]="currencyCode" placeholder="Currency Code" />
@@ -16,5 +24,4 @@
         <h3>currency.base ==> {{currency.base}}</h3>
         <h3>currency.rates ==> {{currency.rates}}</h3>
     </div>
-
 </div>

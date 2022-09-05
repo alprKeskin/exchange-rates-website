@@ -10,10 +10,12 @@ import { Currency } from 'src/app/Currency';
 export class MainPageComponent implements OnInit {
   currency!: Currency;
   currencyCode!: string;
+  budget: number = 0;
 
   constructor(private currencyService: CurrencyService) { }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+  }
 
   onSubmit() {
     console.log("main-page.component.ts::onSubmit()");
@@ -31,5 +33,4 @@ export class MainPageComponent implements OnInit {
       return (this.currency = takenCurrency);
     } )
   }
-
 }
