@@ -1,0 +1,22 @@
+<div class="container">
+    <div id="wallet-header" style="margin-bottom: 50px;">
+        <h1 class="center_horizontal" style="display: inline">Wallet</h1>
+        <div style="position: relative; float: right;">
+            <a href="https://www.google.com" title="Wallet Details" target="_blank">
+                <img src="https://www.freeiconspng.com/uploads/wallet-icon-5.png" height="50px" width="50px">
+            </a>
+            <p style="text-align: center;">{{budget}}$</p>
+        </div>
+    </div>
+
+    <table>
+        <tr>
+            <th>Currency</th>
+            <th>Amount</th>
+        </tr>
+        <tr *ngFor="let current_currency_name of availableCurrencyNames, let i = index">
+            <td>{{current_currency_name}}</td>
+            <td>{{availableCurrencyAmounts[i]}}</td>
+        </tr>
+    </table>
+</div>

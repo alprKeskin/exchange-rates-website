@@ -1,0 +1,20 @@
+<div class="container">
+    <!--Bu form submit edildiği anda onSubmit method'u çağırılacaktır.-->
+    <form class="add-form" (ngSubmit)="onSubmit()">
+        <div class="form-control">
+            <label for="currency_code_input_id" style="margin-left: 5px;">Exchange Rates</label>
+            <!-- [(ngModel)]="currencyCode" yazabilmen için FormsModule'i app.module.ts dosyasında import etmen gerekiyor. -->
+            <!-- [(ngModel)]="currencyCode" attribute'si sayesinde girilen currency code'u currency_code isimli member variable'ye atayabiliyorum. -->
+            <input type="text" name="currency_code_input_name" id="currency_code_input_id" [(ngModel)]="currencyCode" placeholder="Currency Code" />
+        </div>
+        <input type="submit" value="Get Currency Rate" class="btn btn-block" />
+    </form>
+
+    <div class="currency">
+        <h3>currency.id ==> {{currency.id}}</h3>
+        <h3>currency.timestamp ==> {{currency.timestamp}}</h3>
+        <h3>currency.base ==> {{currency.base}}</h3>
+        <h3>currency.rates ==> {{currency.rates}}</h3>
+    </div>
+
+</div>

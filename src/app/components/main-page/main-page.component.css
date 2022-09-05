@@ -1,0 +1,18 @@
+/* copied */
+.add-form {
+    margin-bottom: 40px;
+}
+.currency {
+  background: #f4f4f4;
+  margin: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+} 
+.currency.reminder {
+  border-left: 5px solid green;
+}
+.currency h3 {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
