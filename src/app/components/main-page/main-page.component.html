@@ -1,3 +1,7 @@
+<header>
+    <a href="https://www.vodafone.com.tr" target="_blank"><img id="vodafone-header-logo" src="https://marka-logo.com/wp-content/uploads/2020/09/Vodafone-Logo.png"></a>
+</header>
+
 <div class="container">
     <div id="exchange-rates-header" style="margin-bottom: 80px;">
         <h2 class="center_horizontal" style="display: inline;">Exchange Rates</h2>
@@ -11,8 +15,6 @@
 
     <form class="add-form" (ngSubmit)="onSubmit()">
         <div class="form-control">
-            <!-- [(ngModel)]="currencyCode" yazabilmen için FormsModule'i app.module.ts dosyasında import etmen gerekiyor. -->
-            <!-- [(ngModel)]="currencyCode" attribute'si sayesinde girilen currency code'u currency_code isimli member variable'ye atayabiliyorum. -->
             <input type="text" name="currency_code_input_name" id="currency_code_input_id" [(ngModel)]="currencyCode" placeholder="Currency Code" />
         </div>
         <input type="submit" value="Get Currency Rate" class="btn btn-block" />
@@ -26,5 +28,4 @@
     </div>
 
     <button (click)="test()">click</button>
-
 </div>
