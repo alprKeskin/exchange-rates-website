@@ -8,8 +8,18 @@ import { Currency } from 'src/app/Currency';
   styleUrls: ['./main-page.component.css']
 })
 export class MainPageComponent implements OnInit {
-  currency!: Currency;
+  // fields of taken currency
+  currencyId: string | undefined;
+  currencyTimestamp: number | undefined;
+  currencyBase: string | undefined;
+  currencyValue: number | undefined;
+
+  // temporary rates map
+  currencyRates!: Map<string, number>;
+  // currency code to be printed
   currencyCode!: string;
+
+  // budget of the user
   budget: number = 0;
 
   constructor(private currencyService: CurrencyService) { }
@@ -18,19 +28,38 @@ export class MainPageComponent implements OnInit {
   }
 
   onSubmit() {
-    console.log("main-page.component.ts::onSubmit()");
+    console.log("ENTER ==> main-page.component.ts::onSubmit()");
     if (!this.currencyCode) {
       alert("Please add a currency code");
       return;
     }
     this.getCurrency();
+    console.log("EXIT ==> main-page.component.ts::onSubmit()");
   }
 
   getCurrency() {
-    console.log("main-page.component.ts::onSubmitHelper()");
+    console.log("ENTER ==> main-page.component.ts::getCurrency()");
     this.currencyService.getCurrencyRates().subscribe( (takenCurrency) => {
       console.log(takenCurrency);
-      return (this.currency = takenCurrency);
+      this.getFields(takenCurrency);
+      return takenCurrency;
     } )
+    console.log("EXIT ==> main-page.component.ts::getCurrency()");
   }
+
+  getFields(givenCurrency: Currency) {
+    console.log("ENTER ==> main-page.component.ts::getFields()");
+    // assign fields
+    this.currencyId = givenCurrency.id;
+    this.currencyTimestamp = givenCurrency.timestamp;
+    this.currencyBase = givenCurrency.base;
+    this.currencyRates = new Map(Object.entries(givenCurrency.rates));
+    this.currencyValue = this.currencyRates.get(this.currencyCode);
+    console.log("EXIT ==> main-page.component.ts::getFields()");
+  }
+
+  test() {
+    console.log("test()");
+  }
+  
 }

@@ -12,7 +12,7 @@ export class CurrencyService {
   constructor(private http: HttpClient) { }
 
   getCurrencyRates(): Observable<Currency> {
-    console.log("currency.service.ts::getCurrencyRates()");
+    console.log("ENTER-EXIT ==> currency.service.ts::getCurrencyRates()");
     return this.http.get<Currency>(this.url);
   }
 }
