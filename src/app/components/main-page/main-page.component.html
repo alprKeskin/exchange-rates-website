@@ -19,12 +19,13 @@
 
 <div class="container">
     <!-- Input Form -->
-    <form class="add-form" (ngSubmit)="onSubmit()">
-        <div class="form-control">
-            <input type="text" name="currency_code_input_name" id="currency_code_input_id" [(ngModel)]="currencyCode" placeholder="Currency Code" />
+    <form id="currency-query-form" (ngSubmit)="onSubmit()">
+        <div id="box">
+            <input type="text" id="search" name="currency_code_search" [(ngModel)]="currencyCode" placeholder="Currency Code">
+            <i class="fa fa-search"></i>
         </div>
         <input type="submit" value="Get Currency Rate" class="btn btn-block" />
-    </form>
+     </form>
 
     <!--Table-->
     <table>
@@ -40,5 +41,5 @@
         </tr>
     </table>
 
-    <button (click)="test()">click</button>
+    <!-- <button (click)="test()">click</button> -->
 </div>
