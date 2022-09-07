@@ -14,9 +14,9 @@
             <th>Currency</th>
             <th>Amount</th>
         </tr>
-        <tr *ngFor="let current_currency_name of availableCurrencyNames, let i = index">
+        <tr *ngFor="let current_currency_name of availableCurrencies.keys(), let i = index">
             <td>{{current_currency_name}}</td>
-            <td>{{availableCurrencyAmounts[i]}}</td>
+            <td>{{availableCurrencies.get(current_currency_name)}}</td>
         </tr>
     </table>
 </div>

@@ -5,24 +5,28 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './wallet-page.component.html',
   styleUrls: ['./wallet-page.component.css']
 })
+
 export class WalletPageComponent implements OnInit {
   budget: number = 0;
 
-  availableCurrencyNames:string[] = ["USD", "TRY", "AUD"];
-  availableCurrencyAmounts:number[] = [564.2, 10402, 25.4];
+  availableCurrencies: Map<string, number> = new Map([
+    ["USD", 1000],
+    ["TRY", 200],
+    ["AUD", 300]
+  ]);
 
   constructor() { }
 
   ngOnInit(): void {
-    this.budget = this.sum(this.availableCurrencyAmounts);
+    this.budget = this.sumValues(this.availableCurrencies);
   }
 
-  sum(array:number[]): number {
+  sumValues(map: Map<string, number>): number {
     let result: number = 0;
-    for (let i = 0; i < array.length; i++) {
-      result += array[i];
-    }
+    map.forEach(value => {
+      result += value;
+    })
     return result;
   }
-
+  
 }
