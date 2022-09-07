@@ -9,10 +9,11 @@ import { Currency } from 'src/app/Currency';
 })
 export class MainPageComponent implements OnInit {
   // fields of taken currency
-  currencyId: string | undefined;
-  currencyTimestamp: number | undefined;
-  currencyBase: string | undefined;
-  currencyValue: number | undefined;
+  currencyCodes: string[] = [];
+  currencyIds: string[] = [];
+  currencyTimestamps: number[] = [];
+  currencyBase: string = "USD";
+  currencyValues: number[] = [];
 
   // temporary rates map
   currencyRates!: Map<string, number>;
@@ -49,12 +50,14 @@ export class MainPageComponent implements OnInit {
 
   getFields(givenCurrency: Currency) {
     console.log("ENTER ==> main-page.component.ts::getFields()");
+    
     // assign fields
-    this.currencyId = givenCurrency.id;
-    this.currencyTimestamp = givenCurrency.timestamp;
-    this.currencyBase = givenCurrency.base;
+    this.currencyCodes.push(this.currencyCode);
+    this.currencyIds.push(givenCurrency.id);
+    this.currencyTimestamps.push(givenCurrency.timestamp);
     this.currencyRates = new Map(Object.entries(givenCurrency.rates));
-    this.currencyValue = this.currencyRates.get(this.currencyCode);
+    this.currencyValues.push(this.currencyRates.get(this.currencyCode)!);
+
     console.log("EXIT ==> main-page.component.ts::getFields()");
   }
 

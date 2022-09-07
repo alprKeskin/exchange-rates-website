@@ -18,15 +18,7 @@
 </header>
 
 <div class="container">
-    <div id="exchange-rates-header" style="margin-bottom: 80px;">
-        <div style="position: relative; float: right;">
-            <a href="wallet-page" title="Wallet Details" target="_self">
-                <img src="https://www.freeiconspng.com/uploads/wallet-icon-5.png" height="50px" width="50px">
-            </a>
-            <p style="text-align: center;">{{budget}}$</p>
-        </div>
-    </div>
-
+    <!-- Input Form -->
     <form class="add-form" (ngSubmit)="onSubmit()">
         <div class="form-control">
             <input type="text" name="currency_code_input_name" id="currency_code_input_id" [(ngModel)]="currencyCode" placeholder="Currency Code" />
@@ -34,12 +26,20 @@
         <input type="submit" value="Get Currency Rate" class="btn btn-block" />
     </form>
 
-    <div class="currency">
-        <h3>currency-id ==> {{currencyId}}</h3>
-        <h3>currency-timestamp ==> {{currencyTimestamp}}</h3>
-        <h3>currency-base ==> {{currencyBase}}</h3>
-        <h3>currency-value ==> {{currencyValue}}</h3>
-    </div>
+    <!--Table-->
+
+    <table>
+        <tr>
+            <th>No.</th>
+            <th>Code</th>
+            <th>Value</th>
+        </tr>
+        <tr *ngFor="let current_currency_code of currencyCodes, let i = index">
+            <td>{{i}}</td>
+            <td>{{current_currency_code}}</td>
+            <td>{{currencyValues![i]}}</td>
+        </tr>
+    </table>
 
     <button (click)="test()">click</button>
 </div>
