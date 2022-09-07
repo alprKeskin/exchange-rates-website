@@ -27,17 +27,16 @@
     </form>
 
     <!--Table-->
-
     <table>
         <tr>
             <th>No.</th>
             <th>Code</th>
             <th>Value</th>
         </tr>
-        <tr *ngFor="let current_currency_code of currencyCodes, let i = index">
+        <tr *ngFor="let current_currency of currencies, let i = index">
             <td>{{i}}</td>
-            <td>{{current_currency_code}}</td>
-            <td>{{currencyValues![i]}}</td>
+            <td>{{current_currency.code}}</td>
+            <td>{{current_currency.value}}</td>
         </tr>
     </table>
 
